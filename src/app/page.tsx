@@ -1,9 +1,11 @@
+import { useTranslations } from 'next-intl'
 import React from 'react'
 
 function page() {
+  const t = useTranslations("homepage");
   return (
     <div>
-      <h1>Home Page</h1>
+      <h1>{t("title")}</h1>
     </div>
   )
 }
