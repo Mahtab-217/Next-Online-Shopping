@@ -21,12 +21,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`h-full", "antialiased", "font-sans", ${inter.variable}`}
+      suppressHydrationWarning
+      className={cn("h-full", "antialiased", "font-sans", inter.variable)}
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider attribute="class">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextIntlClientProvider>
-
         {children}
           </NextIntlClientProvider>
         
