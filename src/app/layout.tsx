@@ -28,15 +28,15 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       dir={locale=== "en"? 'ltr': 'rtl'}
 
       suppressHydrationWarning
-      className={`h-full antialiased ${isRTL ? vazirmatn.className: inter.variable} `}
+      className={`h-full antialiased ${isRTL ? vazirmatn.variable : inter.variable} `}
     >
       <body className="min-h-full flex flex-col">
-        {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextIntlClientProvider>
         {children}
           </NextIntlClientProvider>
         
-        {/* </ThemeProvider> */}
+        </ThemeProvider>
         </body>
     </html>
   );

@@ -1,5 +1,10 @@
 {
     "homepage": {
-        "title": "This is the home page"
+        "hero": {
+            "title": "Your Style, Your Way — Shop the Trends You Love",
+            "description": "We use cookies and similar tracking technologies to run our website, personalise content, analyse site usage, and tailor advertisements. To manage your choices, visit our preference centre; for further information, see our cookie policy.",
+            "btn_explore": "Explore More",
+            "btn_join": "Join Us"
+        }
     }
 }

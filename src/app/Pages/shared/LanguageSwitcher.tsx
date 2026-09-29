@@ -1,6 +1,6 @@
 "use client"
 import React, { useReducer, useTransition } from 'react'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 
 
