@@ -1,7 +1,8 @@
 import React from 'react'
 import ThemeSwitcher from './ThemeSwitcher'
-import { Button } from '../ui/button'
+
 import LanguageSwitcher from './LanguageSwitcher'
+import { Button } from '@base-ui/react'
 
 
 function Navbar() {
@@ -13,8 +14,8 @@ function Navbar() {
         </h1>
       </div>
       <div className='flex items-center gap-4'>
-        <ThemeSwitcher/>
         <LanguageSwitcher/>
+        <ThemeSwitcher/>
         <Button>Login</Button>
       </div>
     </div>
