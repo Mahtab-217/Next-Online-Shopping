@@ -6,7 +6,7 @@ import React from 'react'
 function HeroSection() {
   const t =useTranslations("homepage");
   return (
-    <div className='w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2'>
+    <div className='w-full max-w-6xl mx-auto items-center grid grid-cols-1 md:grid-cols-2'>
       <div className='mt-3 flex flex-col gap-6'>
         <h1 className='text-6xl font-bold text-purple-600 '>{t("hero.title")}</h1>
         <p className='text-md text-gray-500'>{t("hero.description")}</p>

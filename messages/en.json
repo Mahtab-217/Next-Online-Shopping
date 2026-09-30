@@ -1,10 +1,41 @@
 {
+    "navbar": {
+        "logo": "Hama Kala",
+        "btn_light": "Light",
+        "btn_dark": "Dark",
+        "btn_system": "System",
+        "btn_login": "Log In"
+    },
     "homepage": {
         "hero": {
             "title": "Your Style, Your Way — Shop the Trends You Love",
             "description": "We use cookies and similar tracking technologies to run our website, personalise content, analyse site usage, and tailor advertisements. To manage your choices, visit our preference centre; for further information, see our cookie policy.",
             "btn_explore": "Explore More",
             "btn_join": "Join Us"
-        }
+        },
+        
+   "features":{
+    "subtitle": "Features",
+    "title": "Our Special Features",
+
+    "feature1":{
+      "title": "Security",
+    "description": "Your data in this app is completely secured"
+   },
+   "feature2":{
+    "title": "User Friendly",
+    "description":" You Can Find This Environment Comfortable and Frienly"
+   },
+   "feature3": {
+    "title": "Multipale Languages",
+    "description": "This Application is available in Dari, Pashto and English"
+   },
+   "feature4": {
+    "title": "Products Variaty",
+    "description": "You Can Find Variaty of Products From The Latest Brands "
+   }
+  }
+
     }
+
 }

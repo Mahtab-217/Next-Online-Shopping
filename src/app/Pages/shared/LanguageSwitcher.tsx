@@ -2,10 +2,12 @@
 import React, { useReducer, useTransition } from 'react'
 import { useRouter } from 'next/navigation';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { useLocale } from 'next-intl';
 
 
 function LanguageSwitcher() {
   const router= useRouter();
+  const locale= useLocale();
   const [pending, startTransition]=useTransition();
   function ChangeLanguage(locale: string){
     document.cookie= `locale=${locale}; path=/;max-age=7776000`;
@@ -16,7 +18,7 @@ function LanguageSwitcher() {
   return (
     <DropdownMenu>
         <DropdownMenuTrigger>
-            Language
+            {locale==="pa"? "پشتو": locale==="en"? "English": "دری" }
         </DropdownMenuTrigger>
     <DropdownMenuContent>
         <DropdownMenuGroup>

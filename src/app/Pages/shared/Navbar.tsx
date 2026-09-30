@@ -3,20 +3,22 @@ import ThemeSwitcher from './ThemeSwitcher'
 
 import LanguageSwitcher from './LanguageSwitcher'
 import { Button } from '@base-ui/react'
+import { useTranslations } from 'next-intl'
 
 
 function Navbar() {
+  const t=useTranslations("navbar");
   return (
-    <div className='w-full py-4 px-8 flex justify-between items-center'>
+    <div className='w-full py-4 border-b border-b-gray-300 fixed left-0 top-0 backdrop-blur-md px-8 flex justify-between items-center'>
       <div>
-        <h1>
-            Logo
+        <h1 className='text-2xl font-bold text-purple-600'>
+        {t("logo")}
         </h1>
       </div>
-      <div className='flex items-center gap-4'>
-        <ThemeSwitcher/>
+      <div className='flex items-center gap-8'>
+        <ThemeSwitcher btn_light={t("btn_light")} btn_dark={t("btn_dark")} btn_system={t("btn_system")} />
         <LanguageSwitcher/>
-        <Button>Login</Button>
+        <Button>{t("btn_login")}</Button>
       </div>
     </div>
   )
