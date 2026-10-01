@@ -4,6 +4,7 @@ import HeroSection from '../Pages/homePage/Hero';
 import FeatureSection from '../Pages/homePage/Features';
 import { title } from 'process';
 import Categories from '../Pages/homePage/Categories';
+import FeaturedProducts from '../Pages/homePage/FeaturedProducts';
  export const metadata = {
   title: "خانه"
  }
@@ -16,6 +17,7 @@ function page() {
       <HeroSection/>
       <FeatureSection/>
       <Categories/>
+      <FeaturedProducts/>
     </div>
   )
 }
