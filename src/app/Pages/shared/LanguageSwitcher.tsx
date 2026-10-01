@@ -3,6 +3,7 @@ import React, { useReducer, useTransition } from 'react'
 import { useRouter } from 'next/navigation';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { useLocale } from 'next-intl';
+import { Languages } from 'lucide-react';
 
 
 function LanguageSwitcher() {
@@ -18,7 +19,8 @@ function LanguageSwitcher() {
   return (
     <DropdownMenu>
         <DropdownMenuTrigger>
-            {locale==="pa"? "پشتو": locale==="en"? "English": "دری" }
+          <Languages size={18}/>
+          
         </DropdownMenuTrigger>
     <DropdownMenuContent>
         <DropdownMenuGroup>

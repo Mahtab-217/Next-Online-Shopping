@@ -5,7 +5,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
 import { useTheme } from 'next-themes'
 import { Moon, Sun, SunMoon } from 'lucide-react';
 
-function ThemeSwitcher({btn_light, btn_dark, btn_system}:{btn_light:string, btn_dark:string, btn_system: string}) {
+function ThemeSwitcher({btn_light, btn_dark, btn_system ,themes}:{btn_light:string, btn_dark:string, btn_system: string, themes: string}) {
    const  {theme, setTheme}=useTheme();
   const [mount, setMount]= useState(false);
   useEffect(()=>{
@@ -19,23 +19,23 @@ function ThemeSwitcher({btn_light, btn_dark, btn_system}:{btn_light:string, btn_
         </DropdownMenuTrigger>
     <DropdownMenuContent>
         <DropdownMenuGroup>
-        <DropdownMenuLabel>theme</DropdownMenuLabel>
+        <DropdownMenuLabel>{themes}</DropdownMenuLabel>
             <DropdownMenuItem onClick={()=>setTheme("light")}>
                 <div className='flex justify-between w-full'>
                     <span>{btn_light}</span>
-                    <Sun/>
+                    <Sun size={18}/>
                 </div>
             </DropdownMenuItem>
              <DropdownMenuItem onClick={()=>setTheme("dark")}>
                 <div className='flex justify-between w-full'>
                     <span>{btn_dark}</span>
-                    <Moon/>
+                    <Moon size={18}/>
                 </div>
             </DropdownMenuItem>
              <DropdownMenuItem onClick={()=>setTheme('system')}>
                 <div className='flex justify-between w-full'>
                     <span>{btn_system}</span>
-                    <SunMoon/>
+                    <SunMoon size={18}/>
                 </div>
             </DropdownMenuItem>
         </DropdownMenuGroup>

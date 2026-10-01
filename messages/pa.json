@@ -4,7 +4,8 @@
     "btn_light": "روښانه",
     "btn_dark": "تیاره",
     "btn_system": "سیستم",
-    "btn_login": "ننوتل"
+    "btn_login": "ننوتل",
+    "theme": "حالت"
 },
     "homepage": {
       
@@ -38,6 +39,21 @@
   "feature4": {
     "title": "د محصولاتو تنوع",
     "description": "تاسو کولی شئ د نوېو برانډونو بېلابېل محصولات ومومئ."
+  }
+},
+"categories": {
+  "title": "د محصولاتو کټګورۍ",
+  "cat1": {
+    "title": "نارینه",
+    "description": "د ۲۰۲۶ کال منی"
+  },
+  "cat2": {
+    "title": "ښځینه",
+    "description": "د ۲۰۲۶ کال منی"
+  },
+  "cat3": {
+    "title": "لوازم",
+    "description": "د نړۍ له ګوټ ګوټ څخه مشهور برانډونه"
   }
 }
 }

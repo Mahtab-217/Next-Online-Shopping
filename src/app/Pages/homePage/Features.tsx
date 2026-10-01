@@ -30,7 +30,7 @@ function FeatureSection() {
   return (
     <div className='w-full max-w-6xl mx-auto mt-4'>
       <h2 className='text-center text-xl font-bold s'>{t("subtitle")}</h2>
-      <h1 className='text-center text-5xl font-bold text-purple-600 my-3'>{t("title")}</h1>
+      <h1 className='title'>{t("title")}</h1>
       <div className='grid w-full grid-cols-4 gap-6'>
         {listFeatures.map((feature)=>(
             <Card key={feature.id}>

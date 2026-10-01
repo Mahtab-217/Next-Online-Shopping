@@ -4,7 +4,8 @@
         "btn_light": "Light",
         "btn_dark": "Dark",
         "btn_system": "System",
-        "btn_login": "Log In"
+        "btn_login": "Log In",
+        "theme": "theme"
     },
     "homepage": {
         "hero": {
@@ -34,6 +35,22 @@
     "title": "Products Variaty",
     "description": "You Can Find Variaty of Products From The Latest Brands "
    }
+  },
+  
+  "categories":{
+    "title": "Products Categories",
+    "cat1":{
+        "title": "Men",
+        "description": "Fall 2026"
+    },
+    "cat2":{
+        "title": "Women",
+        "description": "Fall 2026"
+    },
+    "cat3":{
+        "title": "Accessories",
+        "description": "Famous Brands From Around the World"
+    }
   }
 
     }
