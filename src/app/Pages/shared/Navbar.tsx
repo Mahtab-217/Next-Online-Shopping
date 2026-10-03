@@ -10,7 +10,7 @@ import { LogIn } from 'lucide-react'
 function Navbar() {
   const t=useTranslations("navbar");
   return (
-    <div className='w-full py-4 border-b border-b-gray-300 fixed left-0 top-0 backdrop-blur-md px-8 flex justify-between items-center'>
+    <div className='w-full z-50 py-4 border-b border-b-gray-300 fixed left-0 top-0 backdrop-blur-md px-8 flex justify-between items-center'>
       <div>
         <h1 className='text-2xl font-bold text-purple-600'>
         {t("logo")}

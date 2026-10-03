@@ -1,10 +1,11 @@
 import React from 'react'
 import ProductCard from './ProductCard'
 import { Button } from '@base-ui/react'
+import SearchBtn from './SearchBtn'
+import { useTranslations } from 'next-intl'
 
-function FeaturedProducts(
-
-) {
+function FeaturedProducts() {
+ const t= useTranslations("homepage.products");
     const productList: {id: number, name: string, price: number, image: string}[]=[
         {
             id:1,
@@ -36,11 +37,15 @@ function FeaturedProducts(
       <h1 className='title'>Featured Products</h1>
       <div className='w-full flex justify-between'>
         <div className='my-6 flex space-x-4'>
-            <Button>All Products</Button>
-            <Button>Men</Button>
-            <Button>Women</Button>
-            <Button>Shoes</Button>
-            <Button>Watches</Button>
+            <Button>{t("categories.all_products")}</Button>
+            <Button>{t("categories.men")}</Button>
+            <Button>{t("categories.women")}</Button>
+            <Button>{t("categories.shoes")}</Button>
+            <Button>{t("categories.watches")}</Button>
+           
+        </div>
+        <div className='flex gap-4'>
+          <SearchBtn text={t("categories.search")} />
         </div>
       </div>
 

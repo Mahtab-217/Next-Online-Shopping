@@ -54,6 +54,18 @@
     "title": "لوازم جانبی",
     "description": "برندهای مشهور از سراسر جهان"
   }
+},
+"products": {
+  "title": "محصولات ویژه",
+  "categories": {
+    "men": "مردانه",
+    "women": "زنانه",
+    "all_products": "همه محصولات",
+    "shoes": "کفش",
+    "watches": "ساعت‌ها",
+    "search": "جستجو",
+    "filter": "فیلتر"
+  }
 }
    
 }

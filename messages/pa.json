@@ -55,6 +55,19 @@
     "title": "لوازم",
     "description": "د نړۍ له ګوټ ګوټ څخه مشهور برانډونه"
   }
+},
+"products": {
+  "title": "ځانګړي محصولات",
+  "categories": {
+    "men": "نارینه",
+    "women": "ښځې",
+    "all_products": "ټول محصولات",
+    "shoes": "بوټان",
+    "watches": "ساعتونه",
+    "search": "لټون",
+    "filter": "فلټر"
+  }
 }
+
 }
     }

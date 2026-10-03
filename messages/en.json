@@ -51,6 +51,18 @@
         "title": "Accessories",
         "description": "Famous Brands From Around the World"
     }
+  },
+  "products": {
+    "title": "Featured Products",
+    "categories": {
+        "men": "Men",
+        "women": "Women",
+        "all_products": "All Products",
+        "shoes": "Shoes",
+        "watches": "Watches",
+        "search": "Search",
+        "filter": "Filter"
+    }
   }
 
     }
