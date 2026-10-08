@@ -66,7 +66,38 @@
     "search": "جستجو",
     "filter": "فیلتر"
   }
-}
+},
+"filter":{
+    "brands": {
+        "title": "برند",
+        "fashion": "فیشن",
+        "lifestyle": "غیر رسمی",
+        "hazaragi": "هزارگی",
+        "crafts":"صنایع دستی"
+    },
+    "colors": {
+        "title": "رنگ ها ",
+        "black": "سیاه",
+        "blue":"آبی",
+        "gray": "خاگستری",
+        "red": "سرخ",
+        "green":"سبز",
+        "white":"سفید"
+    },
+    "price":{
+        "title":"قیمت",
+        "all":"همه"
+  },
+  "sort_by": {
+    "title": "ترتیب به اساس", 
+    "default" : "پیش فرض", 
+    "popularity": "شهرت",
+    "newness": "جدید",
+    "price_low_to_high": "از ارزان به قیمت",
+    "price_high_to_low": "از قیمت به ارزان"
+  }
+
+    }
    
 }
     }
