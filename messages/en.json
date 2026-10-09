@@ -94,5 +94,24 @@
   }
 
     }
+    },
+    "dashboard": {
+        "header": {
+            "title": "Online Shopping"
+        },
+        "sidebar": {
+            "title":"Dashborad",
+            "product": {
+                "title": "Manage Products", 
+                "all": "All Products", 
+                "inert": "Add New Product",
+                "manage": "Manage Products"
+            },
+            "feedbacks": {
+                "title": "Feedbacks",
+                "manage": "Manage Feedbacks"
+            }
+        }
+
     }
     }

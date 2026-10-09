@@ -6,7 +6,7 @@ function page() {
   return (
     <div className='w-full flex'>
       <DashboardSidebar/>
-      <div>
+      <div className='flex-1'>
         <DashboardHeader/>
       </div>
     </div>

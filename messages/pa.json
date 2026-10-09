@@ -68,38 +68,55 @@
     "filter": "فلټر"
   }
 },
-"filter":{
+"filter": {
     "brands": {
-        "title": "برند",
-        "fashion": "فیشن",
-        "lifestyle": "غیر رسمی",
-        "hazaragi": "هزارگی",
-        "crafts":"صنایع دستی"
+        "title": "برانډ",
+        "fashion": "فېشن",
+        "lifestyle": "غیر رسمي",
+        "hazaragi": "هزارګي",
+        "crafts": "لاسي صنایع"
     },
     "colors": {
-        "title": "رنگ ها ",
-        "black": "سیاه",
-        "blue":"آبی",
-        "gray": "خاگستری",
-        "red": "سرخ",
-        "green":"سبز",
-        "white":"سفید"
+        "title": "رنګونه",
+        "black": "تور",
+        "blue": "آبي",
+        "gray": "خړ",
+        "red": "سور",
+        "green": "شین",
+        "white": "سپین"
     },
-    "price":{
-        "title":"قیمت",
-        "all":"همه"
-  },
-  "sort_by": {
-    "title": "ترتیب به اساس", 
-    "default" : "پیش فرض", 
-    "popularity": "شهرت",
-    "newness": "جدید",
-    "price_low_to_high": "از ارزان به قیمت",
-    "price_high_to_low": "از قیمت به ارزان"
-  }
-
+    "price": {
+        "title": "بیه",
+        "all": "ټول"
+    },
+    "sort_by": {
+        "title": "ترتیب له مخې",
+        "default": "اصلي",
+        "popularity": "شهرت",
+        "newness": "نوی",
+        "price_low_to_high": "له ټیټې بیې تر لوړې",
+        "price_high_to_low": "له لوړې بیې تر ټیټې"
     }
+}
 
 
+},
+  "dashboard": {
+    "header": {
+        "title": "انلاین پېرودنه"
+    },
+    "sidebar": {
+        "title": "ډشبورډ",
+        "product": {
+            "title": "د محصولاتو اداره",
+            "all": "ټول محصولات",
+            "inert": "نوی محصول اضافه کړئ",
+            "manage": "محصولات اداره کړئ"
+        },
+        "feedbacks": {
+            "title": "نظرونه",
+            "manage": "نظرونه اداره کړئ"
+        }
+    }
 }
     }
