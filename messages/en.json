@@ -104,12 +104,39 @@
             "product": {
                 "title": "Manage Products", 
                 "all": "All Products", 
-                "inert": "Add New Product",
+                "insert": "Add New Product",
                 "manage": "Manage Products"
             },
             "feedbacks": {
                 "title": "Feedbacks",
                 "manage": "Manage Feedbacks"
+            }
+        },
+        "addproduct": {
+            "placeholders": {
+                "name": "Product Name",
+                "price": "Product Price", 
+                "description": "Product Description", 
+                "qty": "Quantity",
+                "alert_qty": "Alert Quantity",
+                "brand": "Product Brand",
+                "color": "Product Colors",
+                "size": "Product Size"
+
+            },
+            "labels":{
+                "name": "Product Name",
+                "price": "Product Price",
+                "brand": "Product Brand",
+                "description":"Product Description",
+                "size": "Product Size",
+                "alert_qty": "Alert Quantity",
+                "qty": "Quantity",
+                "color": "Product Colors",
+                "man_date": "Man Date",
+                "exp_date": "Exp Date",
+                "back_image": "Product Back Image",
+                "front_image": "Product Fron Image"
             }
         }
 

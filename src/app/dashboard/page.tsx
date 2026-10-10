@@ -8,6 +8,7 @@ function page() {
       <DashboardSidebar/>
       <div className='flex-1'>
         <DashboardHeader/>
+        <h1>The main Dashboard page</h1>
       </div>
     </div>
   )

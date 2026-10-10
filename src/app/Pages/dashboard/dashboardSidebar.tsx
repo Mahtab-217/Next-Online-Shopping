@@ -1,12 +1,13 @@
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton } from '@/components/ui/sidebar'
 import { LayoutDashboard, LogOut, MessageCircle, ShoppingBag, ShoppingBasket, ShoppingCart, ShoppingCartPlus } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { cookies } from 'next/headers'
 import Link from 'next/link'
 import React from 'react'
 
  async function DashboardSidebar() {
-   const t= useTranslations("dashboard");
+   const t= await getTranslations("dashboard.sidebar");
     const cookiesInfo = await cookies(); 
      const locale= cookiesInfo.get("locale")?.value || "fa";
   return (
@@ -14,31 +15,48 @@ import React from 'react'
         <SidebarHeader>
         <div className='w-full text-purple-600 text-2xl font-bold flex gap-1.5 py-4 '>
             <LayoutDashboard size={28}/>
-            <span>Dashboard</span>
+            <span>{t("title")}</span>
         </div>
         </SidebarHeader>
         <SidebarContent>
+           <SidebarGroup>
+            <SidebarGroupLabel>Main</SidebarGroupLabel>
+            <SidebarContent>
+
+                    <Link href="/dashboard">
+                 <SidebarMenu>
+                <SidebarMenuButton>
+                    <LayoutDashboard/>
+                    {t("title")}
+                </SidebarMenuButton>
+            </SidebarMenu>
+                </Link>
+
+            </SidebarContent>
+           </SidebarGroup>
             <SidebarGroup>
                 <SidebarGroupContent>
-                <SidebarGroupLabel>Products</SidebarGroupLabel>
+                <SidebarGroupLabel>{t("product.title")}</SidebarGroupLabel>
                 <SidebarMenu>
                     <SidebarMenuButton>
                         <ShoppingCart/>
-                        All products
+                        {t("product.all")}
                     </SidebarMenuButton>
                 </SidebarMenu>
 
+                  <Link href="/dashboard/createproduct">
                 <SidebarMenu>
                     <SidebarMenuButton>
                         <ShoppingCartPlus/>
-                        Add products
+                        {t("product.insert")}
                     </SidebarMenuButton>
                 </SidebarMenu>
+                </Link>
 
                 <SidebarMenu>
                     <SidebarMenuButton>
                         <ShoppingBasket/>
-                        Manage products
+                        {t("product.manage")}
                     </SidebarMenuButton>
                 </SidebarMenu>
                 </SidebarGroupContent>
@@ -46,12 +64,12 @@ import React from 'react'
 
             <SidebarGroup>
                 <SidebarGroupContent>
-                <SidebarGroupLabel>Feedbacks</SidebarGroupLabel>
+                <SidebarGroupLabel>{t("feedbacks.title")}</SidebarGroupLabel>
                  <SidebarMenu>
                     <Link href="/">
                     <SidebarMenuButton>
                         <MessageCircle/>
-                        Manage Feedbacks
+                        {t("feedbacks.manage")}
                     </SidebarMenuButton>
                     </Link>
                  </SidebarMenu>
