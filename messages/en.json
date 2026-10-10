@@ -113,6 +113,8 @@
             }
         },
         "addproduct": {
+            "title": "Create New Product", 
+            "description": "Insert Products That Recently Added to The Store",
             "placeholders": {
                 "name": "Product Name",
                 "price": "Product Price", 
@@ -132,7 +134,20 @@
                 "size": "Product Size",
                 "alert_qty": "Alert Quantity",
                 "qty": "Quantity",
-                "color": "Product Colors",
+                "color": {
+                    "black": "Black",
+                    "red": "Red",
+                    "white": "White",
+                    "green": "Green",
+                    "gray": "Gray",
+                    "blue": "Blue",
+                    "brown": "Brown",
+                    "cyan": "Cyan",
+                    "pink": "Pink",
+                    "purple": "Purple",
+                    "orange": "Orange",
+                    "yellow": "Yellow"
+                },
                 "man_date": "Man Date",
                 "exp_date": "Exp Date",
                 "back_image": "Product Back Image",
