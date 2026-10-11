@@ -4,9 +4,11 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Input } from '@base-ui/react'
 import { useLocale, useTranslations } from 'next-intl';
-import React from 'react'
+import React, { useState } from 'react'
 
 function AddProductForm() {
+    const [productType, setProductType]= useState("clothe");
+    const [showMoreColors, setShowMoreColors]=useState(false);
     const locale= useLocale();
     const t = useTranslations("dashboard.addproduct");
   return (
@@ -31,10 +33,31 @@ function AddProductForm() {
                 <Input type='text' id='size' name='size' placeholder={t("placeholders.size")}/>  
                </div>
 
+              <div className='grid gap-2'>
+                    <Label>{t("labels.product_type")}</Label>
+                    <Select value={productType} onValueChange={()=>setProductType}>
+                        <SelectTrigger className="w-full ">Select Type</SelectTrigger>
+                        <SelectContent className="w-full">
+                            <SelectItem value="clothe">Clothe</SelectItem>
+                            <SelectItem value="shoes">Shoes</SelectItem>
+                            <SelectItem value="cosmetic_item">Cosmetic Item</SelectItem>
+                        </SelectContent>
+                    </Select>
+              </div>
+
+              {/* man date */}
+              <div className={`grid gap-2 ${productType== "cosmetic_item"? "block": "hidden"}`}>
+                <Label></Label>
+              </div>
+              {/* exp date */}
+              <div className={`grid gap-2 ${productType== "cosmetic_item"? "block": "hidden"}`}>
+                <Label></Label>
+              </div>
+
                <div className='flex gap-4 flex-wrap items-center'>
-                <h1>رنک ها</h1>
+                <h1 className='text-xl font-bold'>رنگ ها</h1>
                 <div className='flex gap-1 items-center'>
-                    <div>
+                    <div className='flex gap-1'>
                          <div className='h-4 w-4 bg-white border-2 border rounded-full'></div>
                     <Label htmlFor='white'>{t("labels.color.white")}</Label>
                     </div>
@@ -42,18 +65,18 @@ function AddProductForm() {
                 </div>
 
                 <div className='flex gap-1 items-center'>
-                    <div>
+                    <div className='flex gap-1'>
                          <div className='h-4 w-4 bg-blue-700 rounded-full'></div>
                     <Label htmlFor='blue'>{t("labels.color.blue")}</Label>
                     </div>
                     <Checkbox name='color' id='blue' value='blue'/>
                 </div>
                 <div className='flex gap-1 items-center'>
-                    <div>
-                        <div className='h-4 w-4 bg-red-700 rounded-full'></div>
-                    <Label htmlFor='red'>{t("labels.color.red")}</Label>
+                    <div className='flex gap-1'>
+                        <div className='h-4 w-4 bg-purple-700 rounded-full'></div>
+                    <Label htmlFor='purple'>{t("labels.color.purple")}</Label>
                     </div>
-                    <Checkbox name='color' id='red' value='red'/>
+                    <Checkbox name='color' id='purple' value='purple'/>
                 </div>
                 <div className='flex gap-1 items-center'>
                     <div className='flex gap-1 '>
@@ -62,7 +85,73 @@ function AddProductForm() {
                     </div>
                     <Checkbox name='color' id='black' value='black'/>
                 </div>
-                <Button>رنگ های بیشتر</Button>
+                {/* blue */}
+                <div className={`${showMoreColors? "flex": "hidden"} gap-1 items-center`}>
+                    <div className='flex gap-1 '>
+                        <div className='h-4 w-4 bg-gray-500 dark:border dark:border-white rounded-full'></div>
+                    <Label htmlFor='gray'>{t("labels.color.gray")}</Label>
+                    </div>
+                    <Checkbox name='color' id='gray' value='gray'/>
+                </div>
+                {/* brown */}
+                 <div className={`${showMoreColors? "flex": "hidden"} gap-1 items-center`}>
+                    <div className='flex gap-1 '>
+                        <div className='h-4 w-4 bg-amber-700 dark:border dark:border-white rounded-full'></div>
+                    <Label htmlFor='brown'>{t("labels.color.brown")}</Label>
+                    </div>
+                    <Checkbox name='color' id='brown' value='brown'/>
+                </div>
+                {/* green */}
+                 <div className={`${showMoreColors? "flex": "hidden"} gap-1 items-center`}>
+                    <div className='flex gap-1 '>
+                        <div className='h-4 w-4 bg-green-700 dark:border dark:border-white rounded-full'></div>
+                    <Label htmlFor='green'>{t("labels.color.green")}</Label>
+                    </div>
+                    <Checkbox name='color' id='green' value='green'/>
+                </div>
+                {/* cyan */}
+                 <div className={`${showMoreColors? "flex": "hidden"} gap-1 items-center`}>
+                    <div className='flex gap-1 '>
+                        <div className='h-4 w-4 bg-cyan-500 dark:border dark:border-white rounded-full'></div>
+                    <Label htmlFor='cyan'>{t("labels.color.cyan")}</Label>
+                    </div>
+                    <Checkbox name='color' id='cyan' value='cyan'/>
+                </div>
+                {/* pink */}
+                 <div className={`${showMoreColors? "flex": "hidden"} gap-1 items-center`}>
+                    <div className='flex gap-1 '>
+                        <div className='h-4 w-4 bg-pink-500 dark:border dark:border-white rounded-full'></div>
+                    <Label htmlFor='pink'>{t("labels.color.pink")}</Label>
+                    </div>
+                    <Checkbox name='color' id='pink' value='pink'/>
+                </div>
+                {/* yellow */}
+                 <div className={`${showMoreColors? "flex": "hidden"} gap-1 items-center`}>
+                    <div className='flex gap-1 '>
+                        <div className='h-4 w-4 bg-yellow-500 dark:border dark:border-white rounded-full'></div>
+                    <Label htmlFor='yellow'>{t("labels.color.yellow")}</Label>
+                    </div>
+                    <Checkbox name='color' id='yellow' value='yellow'/>
+                </div>
+                {/* red */}
+                 <div className={`${showMoreColors? "flex": "hidden"} gap-1 items-center`}>
+                    <div className='flex gap-1 '>
+                        <div className='h-4 w-4 bg-red-700 dark:border dark:border-white rounded-full'></div>
+                    <Label htmlFor='red'>{t("labels.color.red")}</Label>
+                    </div>
+                    <Checkbox name='color' id='red' value='red'/>
+                </div>
+                {/* orange */}
+                 <div className={`${showMoreColors? "flex": "hidden"} gap-1 items-center`}>
+                    <div className='flex gap-1 '>
+                        <div className='h-4 w-4 bg-orange-500 dark:border dark:border-white rounded-full'></div>
+                    <Label htmlFor='orange'>{t("labels.color.orange")}</Label>
+                    </div>
+                    <Checkbox name='color' id='orange' value='orange'/>
+                </div>
+                <Button onClick={()=>setShowMoreColors(!showMoreColors)}>
+                    {!showMoreColors? "رنگ های بیشتر": "رنگ های ترند"}
+                </Button>
                </div>
             </form>
   )

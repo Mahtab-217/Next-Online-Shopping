@@ -127,6 +127,7 @@
 
             },
             "labels":{
+                "product_type": "Product Type",
                 "name": "Product Name",
                 "price": "Product Price",
                 "brand": "Product Brand",
@@ -135,6 +136,7 @@
                 "alert_qty": "Alert Quantity",
                 "qty": "Quantity",
                 "color": {
+
                     "black": "Black",
                     "red": "Red",
                     "white": "White",
