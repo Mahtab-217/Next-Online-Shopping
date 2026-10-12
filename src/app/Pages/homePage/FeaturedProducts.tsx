@@ -7,7 +7,8 @@ import SearchBtn from './SearchBtn'
 import { useTranslations } from 'next-intl'
 import FilterBtn from './FilterBtn'
 import FilterProducts from './FilterProducts'
-import { Input } from '@base-ui/react'
+import { Input } from '@/components/ui/input'
+
 
 function FeaturedProducts() {
   const [showInput, setShowInput]= useState(false);
@@ -27,13 +28,13 @@ function FeaturedProducts() {
             image: "/images/product-04.jpg",
         },
         {
-            id:1,
+            id:3,
             name: "Classic Watch",
             price: 90.20,
             image: "/images/product-06.jpg",
         },
         {
-            id:1,
+            id:4,
             name: "Female Top",
             price: 93.5,
             image: "/images/product-14.jpg",

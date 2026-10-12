@@ -1,8 +1,10 @@
 "use client"
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Input } from '@base-ui/react'
+import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/ui/select';
+
 import { useLocale, useTranslations } from 'next-intl';
 import React, { useState } from 'react'
 
@@ -18,7 +20,7 @@ function AddProductForm() {
                 <Input type='text' name='name' placeholder={t("placeholders.name")}/>  
                </div>
 
-               <div className='grid gap-2'>
+               <div className='grid  gap-2'>
                 <Label>{t("labels.price")}</Label>
                 <div className='relative'>
                 <Input type='number' name='price' placeholder='product price'/>   
@@ -36,11 +38,11 @@ function AddProductForm() {
               <div className='grid gap-2'>
                     <Label>{t("labels.product_type")}</Label>
                     <Select value={productType} onValueChange={()=>setProductType}>
-                        <SelectTrigger className="w-full ">Select Type</SelectTrigger>
+                        <SelectTrigger className="w-full ">{t("types.title")}</SelectTrigger>
                         <SelectContent className="w-full">
-                            <SelectItem value="clothe">Clothe</SelectItem>
-                            <SelectItem value="shoes">Shoes</SelectItem>
-                            <SelectItem value="cosmetic_item">Cosmetic Item</SelectItem>
+                            <SelectItem value="clothe">{t("types.clothe")}</SelectItem>
+                            <SelectItem value="shoes">{t("types.shoes")}</SelectItem>
+                            <SelectItem value="cosmetic_item">{t("types.cosmetic")}</SelectItem>
                         </SelectContent>
                     </Select>
               </div>
@@ -55,7 +57,7 @@ function AddProductForm() {
               </div>
 
                <div className='flex gap-4 flex-wrap items-center'>
-                <h1 className='text-xl font-bold'>رنگ ها</h1>
+                <h1 className='text-xl font-bold'>{t("labels.color.title")}</h1>
                 <div className='flex gap-1 items-center'>
                     <div className='flex gap-1'>
                          <div className='h-4 w-4 bg-white border-2 border rounded-full'></div>
@@ -150,7 +152,7 @@ function AddProductForm() {
                     <Checkbox name='color' id='orange' value='orange'/>
                 </div>
                 <Button onClick={()=>setShowMoreColors(!showMoreColors)}>
-                    {!showMoreColors? "رنگ های بیشتر": "رنگ های ترند"}
+                    {!showMoreColors? <div>{t("labels.color.btn_more")}</div>: <div>{t("labels.color.btn_trend")}</div>}
                 </Button>
                </div>
             </form>

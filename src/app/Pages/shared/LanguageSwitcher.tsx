@@ -2,18 +2,19 @@
 import React, { useReducer, useTransition } from 'react'
 import { useRouter } from 'next/navigation';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Languages } from 'lucide-react';
 
 
 function LanguageSwitcher() {
+ const t = useTranslations("navbar.lang");
   const router= useRouter();
   const locale= useLocale();
   const [pending, startTransition]=useTransition();
   function ChangeLanguage(locale: string){
     document.cookie= `locale=${locale}; path=/;max-age=7776000`;
     startTransition(()=>{
-      // router.refresh();
+      router.refresh();
     })
   }
   return (
@@ -24,15 +25,15 @@ function LanguageSwitcher() {
         </DropdownMenuTrigger>
     <DropdownMenuContent>
         <DropdownMenuGroup>
-        <DropdownMenuLabel>language</DropdownMenuLabel>
+        <DropdownMenuLabel>{t("title")}</DropdownMenuLabel>
             <DropdownMenuItem onClick={()=>ChangeLanguage("fa")}>
-                Dari
+                {t("dari")}
             </DropdownMenuItem>
              <DropdownMenuItem onClick={()=>ChangeLanguage("en")}>
-              English
+              {t("english")}
             </DropdownMenuItem>
              <DropdownMenuItem onClick={()=>ChangeLanguage("pa")}>
-              Pashto
+              {t("pashto")}
             </DropdownMenuItem>
         </DropdownMenuGroup>
     </DropdownMenuContent>

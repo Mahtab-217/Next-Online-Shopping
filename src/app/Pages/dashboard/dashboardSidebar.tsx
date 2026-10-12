@@ -20,7 +20,7 @@ import React from 'react'
         </SidebarHeader>
         <SidebarContent>
            <SidebarGroup>
-            <SidebarGroupLabel>Main</SidebarGroupLabel>
+            <SidebarGroupLabel>{t("main")}</SidebarGroupLabel>
             <SidebarContent>
 
                     <Link href="/dashboard">

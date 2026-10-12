@@ -1,5 +1,6 @@
 "use client"
-import { Button } from '@base-ui/react'
+
+import { Button } from '@/components/ui/button'
 import { ListFilter } from 'lucide-react'
 import React, { useState } from 'react'
 

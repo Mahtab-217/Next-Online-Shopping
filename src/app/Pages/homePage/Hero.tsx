@@ -1,4 +1,5 @@
-import { Button } from '@base-ui/react';
+
+import { Button } from '@/components/ui/button';
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import React from 'react'
@@ -11,7 +12,7 @@ function HeroSection() {
         <h1 className='text-6xl font-bold text-purple-600 '>{t("hero.title")}</h1>
         <p className='text-md text-gray-500'>{t("hero.description")}</p>
         <div className='flex gap-4'>
-          <Button>{t("hero.btn_explore")}</Button>
+          <Button className="bg-purple-600 text-white px-8 hover:bg-purple-800 transition-colors duration-300">{t("hero.btn_explore")}</Button>
           <Button className="bg-purple-600 text-white px-8 hover:bg-purple-800 transition-colors duration-300">{t("hero.btn_join")}</Button>
         </div>
       </div>

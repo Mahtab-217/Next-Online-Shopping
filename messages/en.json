@@ -5,7 +5,13 @@
         "btn_dark": "Dark",
         "btn_system": "System",
         "btn_login": "Log In",
-        "theme": "theme"
+        "theme": "theme",
+        "lang": {
+            "title": "Language",
+            "dari": "Farsi",
+            "english": "English",
+            "pashto": "Pashto"
+        }
     },
     "homepage": {
         "hero": {
@@ -100,6 +106,7 @@
             "title": "Online Shopping"
         },
         "sidebar": {
+            "main": "Main",
             "title":"Dashborad",
             "product": {
                 "title": "Manage Products", 
@@ -113,6 +120,12 @@
             }
         },
         "addproduct": {
+             "types":{
+                    "title": "Select Type",
+                    "clothe": "Clothe",
+                    "shoes": "Shoes",
+                    "cosmetic": "Cosmetic Items"
+                },
             "title": "Create New Product", 
             "description": "Insert Products That Recently Added to The Store",
             "placeholders": {
@@ -124,6 +137,7 @@
                 "brand": "Product Brand",
                 "color": "Product Colors",
                 "size": "Product Size"
+               
 
             },
             "labels":{
@@ -136,7 +150,7 @@
                 "alert_qty": "Alert Quantity",
                 "qty": "Quantity",
                 "color": {
-
+                    "title": "Colors",
                     "black": "Black",
                     "red": "Red",
                     "white": "White",
@@ -148,7 +162,10 @@
                     "pink": "Pink",
                     "purple": "Purple",
                     "orange": "Orange",
-                    "yellow": "Yellow"
+                    "yellow": "Yellow",
+                    "btn_more": "More Colors",
+                    "btn_trend": "Trend Colors"
+
                 },
                 "man_date": "Man Date",
                 "exp_date": "Exp Date",

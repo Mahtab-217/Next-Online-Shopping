@@ -2,9 +2,10 @@ import React from 'react'
 import ThemeSwitcher from './ThemeSwitcher'
 
 import LanguageSwitcher from './LanguageSwitcher'
-import { Button } from '@base-ui/react'
+
 import { useTranslations } from 'next-intl'
 import { LogIn } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 
 function Navbar() {
