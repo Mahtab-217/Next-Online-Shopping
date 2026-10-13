@@ -7,9 +7,18 @@ import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/u
 
 import { useLocale, useTranslations } from 'next-intl';
 import React, { useState } from 'react'
+import ShamsiEndDate from './shamsiEndDate';
+import ShamsiDatePicker from './shamsiDatePicker';
+import { Textarea } from '@/components/ui/textarea';
+type productType = "clothe"| "shoes"| "cosmetic_item";
+
+
 
 function AddProductForm() {
-    const [productType, setProductType]= useState("clothe");
+  const [manDate, setManDate]=  useState();
+  const [expDate, setExpDate]=  useState();
+
+    const [productType, setProductType]= useState<productType| "">("");
     const [showMoreColors, setShowMoreColors]=useState(false);
     const locale= useLocale();
     const t = useTranslations("dashboard.addproduct");
@@ -34,10 +43,37 @@ function AddProductForm() {
                 <Label htmlFor='size'>{t("labels.size")}</Label>
                 <Input type='text' id='size' name='size' placeholder={t("placeholders.size")}/>  
                </div>
+               <div className='grid gap-2'>
+                <Label htmlFor='brand'>{t("labels.brand")}</Label>
+                <Input type='text' id='brand' name='brand' placeholder={t("placeholders.brand")}/>  
+               </div>
+
+                 <div className='grid gap-2'>
+                <Label htmlFor='qty'>{t("labels.qty")}</Label>
+                <Input type='number' id='qty' name='qty' placeholder={t("placeholders.qty")}/>  
+               </div>
+
+
+                 <div className='grid gap-2'>
+                <Label htmlFor='alert_qty'>{t("labels.alert_qty")}</Label>
+                <Input type='number' id='alert_qty' name='alert_qty' placeholder={t("placeholders.alert_qty")}/>  
+               </div>
+
+               <div className='grid gap-2'>
+                <Label htmlFor='front_image'>{t("labels.front_image")}</Label>
+                <Input type='file' id='front_image' name='front_image'/>  
+               </div>
+
+               <div className='grid gap-2'>
+                <Label htmlFor='back_image'>{t("labels.back_image")}</Label>
+                <Input type='file' id='back_image' name='back_image'/>  
+               </div>
+
+
 
               <div className='grid gap-2'>
                     <Label>{t("labels.product_type")}</Label>
-                    <Select value={productType} onValueChange={()=>setProductType}>
+                    <Select value={productType} onValueChange={(value)=>setProductType(value as productType | "")}>
                         <SelectTrigger className="w-full ">{t("types.title")}</SelectTrigger>
                         <SelectContent className="w-full">
                             <SelectItem value="clothe">{t("types.clothe")}</SelectItem>
@@ -49,11 +85,19 @@ function AddProductForm() {
 
               {/* man date */}
               <div className={`grid gap-2 ${productType== "cosmetic_item"? "block": "hidden"}`}>
-                <Label></Label>
+                <Label>{t("labels.man_date")}</Label>
+                
+                
+                    <ShamsiDatePicker date={manDate} setDate={setManDate}/>
+            
               </div>
               {/* exp date */}
               <div className={`grid gap-2 ${productType== "cosmetic_item"? "block": "hidden"}`}>
-                <Label></Label>
+                <Label>{t("labels.exp_date")}</Label>
+                
+            
+                    <ShamsiEndDate date={expDate} setDate={setExpDate}/>
+            
               </div>
 
                <div className='flex gap-4 flex-wrap items-center'>
@@ -155,6 +199,13 @@ function AddProductForm() {
                     {!showMoreColors? <div>{t("labels.color.btn_more")}</div>: <div>{t("labels.color.btn_trend")}</div>}
                 </Button>
                </div>
+
+               <div className='grid gap-2'>
+                <Label htmlFor='description'>{t("labels.description")}</Label>
+                <Textarea className='w-full h-40 resize-none' placeholder={t("placeholders.description")}/>
+               </div>
+
+               <Button>{t("labels.save_btn")}</Button>
             </form>
   )
 }

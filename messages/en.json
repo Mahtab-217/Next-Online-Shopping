@@ -141,6 +141,7 @@
 
             },
             "labels":{
+                "save_btn": "Save",
                 "product_type": "Product Type",
                 "name": "Product Name",
                 "price": "Product Price",
