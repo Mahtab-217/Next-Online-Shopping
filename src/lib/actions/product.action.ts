@@ -1,16 +1,24 @@
-import z, { size } from "zod"
+"use server"
+import z, { file, size } from "zod"
 
-const ValidateSchema= z.object({
-    name: z.string().min(3, "Name"),
-    price: z.number().positive("Positive"),
-    size: z.string(),
-    color: z.array(z.string()).min(1, ),
+
+
+export function AddProduct(prevState: any, formData: FormData){
+    const ValidateSchema= z.object({
+    name: z.string().min(3, prevState.validationMessages.name_min),
+    price: z.number().positive(prevState.validationMessages.price),
+    size: z.string(prevState.validationMessages.size),
+    color: z.array(z.string()).min(1, prevState.validationChecker.color_min),
+    brand: z.string().min(3, prevState.validationMessages.brans),
+    qty: z.number().positive(prevState.validationMessages.qty),
+    alert_qty: z.number().positive(prevState.validationMessages.alert_qty),
+    front_image: z.instanceof(File, {message: prevState.validationMessages.image}),
+    back_image: z.instanceof(File, {message: prevState.validationMessages.image}).refine((file)=> ["PNG, JPG, JPEG, GIF, webp"]),
+    description: z.string().min(10, prevState.validationMessages.description),
 
     
 
-})
-
-export function AddProduct(_prevState: unknown, formData: FormData){
+});
     const validationChecker = ValidateSchema.safeParse({
         name: formData.get("name"),
         price: Number(formData.get("price")),
@@ -22,11 +30,13 @@ export function AddProduct(_prevState: unknown, formData: FormData){
         return {
             status: false, 
             message: "Validation error",
+            validationMessages: "",
             error: validationChecker.error.flatten().fieldErrors,
         }
     }
     return {
         status: true,
         message: "",
+        validationMessages: "",
     }
 }

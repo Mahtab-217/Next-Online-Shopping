@@ -24,9 +24,11 @@ function AddProductForm() {
     const [showMoreColors, setShowMoreColors]=useState(false);
     const locale= useLocale();
     const t = useTranslations("dashboard.addproduct");
+    const validationMessages = t("dashboard.addProduct.errors");
     const [data, action, isPending ]= useActionState( AddProduct,{
         status: false,
         message: "",
+        validationMessages: validationMessages,
 
     }); 
   return (
