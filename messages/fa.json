@@ -125,6 +125,12 @@
         }
     },
     "addproduct": {
+        "errors": {
+                "name_min": "The product name should be at least 3 characters",
+                "price": "The price should be a positive number",
+                 "size": "The procuct size must be a string",
+                 "color_min": "At least one color should be selected"
+            },
         "types": {
     "title": "انتخاب نوع",
     "clothe": "پوشاک",
