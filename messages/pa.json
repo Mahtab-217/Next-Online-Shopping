@@ -127,10 +127,17 @@
     },
     "addproduct": {
         "errors": {
+          "mandate_error": "The man date of a product must be smaller than the exp date",
+          "image_typ": "The image type must be jpg, jpeg, png, gif or webp",
                 "name_min": "The product name should be at least 3 characters",
                 "price": "The price should be a positive number",
                  "size": "The procuct size must be a string",
-                 "color_min": "At least one color should be selected"
+                 "color_min": "At least one color should be selected",
+                  "brand_min": "The product brand should be at least 3 characters",
+                 "image": "Image is required", 
+                 "description": "The product description must be at least 10 characters",
+                 "qty": "The quantity of the products should be a positive number",
+                 "alert_qty": "The alert quantity of the products should be a positive number"
             },
        "types": {
     "title": "ډول وټاکئ",

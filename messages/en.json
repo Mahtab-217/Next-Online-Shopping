@@ -121,6 +121,8 @@
         },
         "addproduct": {
             "errors": {
+                "mandate_error": "The man date of a product must be smaller than the exp date",
+                "image_typ": "The image type must be jpg, jpeg, png, gif or webp",
                 "name_min": "The product name should be at least 3 characters",
                 "price": "The price should be a positive number",
                  "size": "The procuct size must be a string",

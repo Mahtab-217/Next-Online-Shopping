@@ -1,20 +1,22 @@
 "use server"
+import { getTranslations } from "next-intl/server";
 import z, { file, size } from "zod"
 
 
 
-export function AddProduct(prevState: any, formData: FormData){
+export async function AddProduct(prevState: any, formData: FormData){
+  const t= await getTranslations("dashboard.addproduct.errors");
     const ValidateSchema= z.object({
-    name: z.string().min(3, prevState.validationMessages.name_min),
-    price: z.number().positive(prevState.validationMessages.price),
-    size: z.string(prevState.validationMessages.size),
-    color: z.array(z.string()).min(1, prevState.validationChecker.color_min),
-    brand: z.string().min(3, prevState.validationMessages.brans),
-    qty: z.number().positive(prevState.validationMessages.qty),
-    alert_qty: z.number().positive(prevState.validationMessages.alert_qty),
-    front_image: z.instanceof(File, {message: prevState.validationMessages.image}),
-    back_image: z.instanceof(File, {message: prevState.validationMessages.image}).refine((file)=> ["PNG, JPG, JPEG, GIF, webp"]),
-    description: z.string().min(10, prevState.validationMessages.description),
+    name: z.string().min(3, t("name_min")),
+    price: z.coerce.number().positive(t("price")),
+    size: z.string(t("size")),
+    color: z.array(z.string()).min(1, t("color_min")),
+    brand: z.string().min(3, t("brand_min")),
+    qty: z.number().positive(t("qty")),
+    alert_qty: z.number().positive(t("alert_qty")),
+    front_image: z.instanceof(File, {message: t("image")}).refine((file)=> ["PNG, JPG, JPEG, GIF, webp", t("image_type")]),
+    back_image: z.instanceof(File, {message: t("image")}).refine((file)=> ["PNG, JPG, JPEG, GIF, webp", t("image_type")]),
+    description: z.string().min(10, t("description")),
 
     
 
@@ -24,6 +26,16 @@ export function AddProduct(prevState: any, formData: FormData){
         price: Number(formData.get("price")),
         color: formData.getAll("color"),
         size: formData.get("size"),
+        brand: formData.get("brand"),
+        qty: formData.get("qty"),
+        alert_qty: formData.get("alert_qty"),
+        man_date: formData.get("man_date"),
+        exp_date: formData.get("exp_date"),
+        description: formData.get("description"),
+        fron_image: formData.get("front_image") as File,
+        back_image: formData.get("back_image") as File,
+        product_type: formData.get("product_type"),
+
 
     });
     if(!validationChecker.success){
@@ -37,6 +49,6 @@ export function AddProduct(prevState: any, formData: FormData){
     return {
         status: true,
         message: "",
-        validationMessages: "",
+        
     }
 }

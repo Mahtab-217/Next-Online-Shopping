@@ -17,8 +17,8 @@ type productType = "clothe"| "shoes"| "cosmetic_item";
 
 function AddProductForm() {
 
-  const [manDate, setManDate]=  useState();
-  const [expDate, setExpDate]=  useState();
+  const [manDate, setManDate]=  useState<any>();
+  const [expDate, setExpDate]=  useState<any>();
 
     const [productType, setProductType]= useState<productType| "">("");
     const [showMoreColors, setShowMoreColors]=useState(false);
@@ -28,7 +28,7 @@ function AddProductForm() {
     const [data, action, isPending ]= useActionState( AddProduct,{
         status: false,
         message: "",
-        validationMessages: validationMessages,
+       
 
     }); 
   return (
@@ -88,7 +88,7 @@ function AddProductForm() {
 
               <div className='grid gap-2'>
                     <Label>{t("labels.product_type")}</Label>
-                    <Select value={productType} onValueChange={(value)=>setProductType(value as productType | "")}>
+                    <Select name='type' value={productType} onValueChange={(value)=>setProductType(value as productType | "")}>
                         <SelectTrigger className="w-full ">{t("types.title")}</SelectTrigger>
                         <SelectContent className="w-full">
                             <SelectItem value="clothe">{t("types.clothe")}</SelectItem>
@@ -104,7 +104,7 @@ function AddProductForm() {
                 
                 
                     <ShamsiDatePicker date={manDate} setDate={setManDate}/>
-            
+                    <Input name='man_date' type='text' defaultValue={manDate? manDate.format("YYYY/MM/DD") : ""} className='hidden'/>
               </div>
               {/* exp date */}
               <div className={`grid gap-2 ${productType== "cosmetic_item"? "block": "hidden"}`}>
@@ -112,7 +112,7 @@ function AddProductForm() {
                 
             
                     <ShamsiEndDate date={expDate} setDate={setExpDate}/>
-            
+                  <Input name='man_date' type='text' defaultValue={expDate? expDate.format("YYYY/MM/DD") : ""} className='hidden'/>
               </div>
 
                <div className='flex gap-4 flex-wrap items-center'>
