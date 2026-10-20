@@ -37,7 +37,7 @@ function AddProductForm() {
                 <Label>{t("labels.name")}</Label>
                 <Input type='text' name='name' placeholder={t("placeholders.name")}/>  
                 {data.error?.name && (
-                    <p className='text-xs text-red-800'>{data.error.name[0]}</p>
+                    <p className='error-message'>{data.error.name[0]}</p>
                 )}
                </div>
 
@@ -50,38 +50,69 @@ function AddProductForm() {
                 </div> 
                 </div>
                 {data.error?.price && (
-                    <p className='text-xs text-red-800'>{data.error.price[0]}</p>
+                    <p  className='error-message'>{data.error.price[0]}</p>
                 )}
                 </div>
 
                 <div className='grid gap-2'>
                 <Label htmlFor='size'>{t("labels.size")}</Label>
                 <Input type='text' id='size' name='size' placeholder={t("placeholders.size")}/>  
+                {data.error?.size &&(
+                    <p  className='error-message'>
+                        {data.error.size[0]}
+                    </p>
+                )}
                </div>
+
                <div className='grid gap-2'>
                 <Label htmlFor='brand'>{t("labels.brand")}</Label>
                 <Input type='text' id='brand' name='brand' placeholder={t("placeholders.brand")}/>  
+                {data.error?.brand &&(
+                    <p  className='error-message'>
+                        {data.error.brand[0]}
+                    </p>
+                )}
                </div>
 
                  <div className='grid gap-2'>
                 <Label htmlFor='qty'>{t("labels.qty")}</Label>
                 <Input type='number' id='qty' name='qty' placeholder={t("placeholders.qty")}/>  
+                {data.error?.qty &&(
+                    <p className='error-message'>
+                        {data.error.qty[0]}
+                    </p>
+                )}
                </div>
 
 
                  <div className='grid gap-2'>
                 <Label htmlFor='alert_qty'>{t("labels.alert_qty")}</Label>
-                <Input type='number' id='alert_qty' name='alert_qty' placeholder={t("placeholders.alert_qty")}/>  
+                <Input type='number' id='alert_qty' name='alert_qty' placeholder={t("placeholders.alert_qty")}/> 
+                 {data.error?.alert_qty &&(
+                    <p className='error-message'>
+                        {data.error.alert_qty[0]}
+                    </p>
+                )}
                </div>
 
                <div className='grid gap-2'>
                 <Label htmlFor='front_image'>{t("labels.front_image")}</Label>
                 <Input type='file' id='front_image' name='front_image'/>  
+                 {data.error?.front_image &&(
+                    <p className='error-message'>
+                        {data.error.front_image[0]}
+                    </p>
+                )}
                </div>
 
                <div className='grid gap-2'>
                 <Label htmlFor='back_image'>{t("labels.back_image")}</Label>
                 <Input type='file' id='back_image' name='back_image'/>  
+                 {data.error?.back_image &&(
+                    <p className='error-message'>
+                        {data.error.back_image[0]}
+                    </p>
+                )}  
                </div>
 
 
@@ -96,6 +127,11 @@ function AddProductForm() {
                             <SelectItem value="cosmetic_item">{t("types.cosmetic")}</SelectItem>
                         </SelectContent>
                     </Select>
+                    {data.error?.type &&(
+                    <p  className='error-message'>
+                        {data.error.type[0]}
+                    </p>
+                )}
               </div>
 
               {/* man date */}
@@ -210,6 +246,13 @@ function AddProductForm() {
                     </div>
                     <Checkbox name='color' id='orange' value='orange'/>
                 </div>
+
+                {data.error?.color &&(
+                    <p  className='error-message'>
+                        {data.error.color[0]}
+                    </p>
+                )}
+
                 <Button onClick={()=>setShowMoreColors(!showMoreColors)}>
                     {!showMoreColors? <div>{t("labels.color.btn_more")}</div>: <div>{t("labels.color.btn_trend")}</div>}
                 </Button>
@@ -218,6 +261,11 @@ function AddProductForm() {
                <div className='grid gap-2'>
                 <Label htmlFor='description'>{t("labels.description")}</Label>
                 <Textarea className='w-full h-40 resize-none' placeholder={t("placeholders.description")}/>
+                {data.error?.description &&(
+                    <p  className='error-message'>
+                        {data.error.description[0]}
+                    </p>
+                )}
                </div>
 
                <Button type='submit'>{t("labels.save_btn")}</Button>

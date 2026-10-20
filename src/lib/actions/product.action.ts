@@ -13,6 +13,7 @@ export async function AddProduct(prevState: any, formData: FormData){
     color: z.array(z.string()).min(1, t("color_min")),
     brand: z.string().min(3, t("brand_min")),
     qty: z.number().positive(t("qty")),
+    type: z.string(),
     alert_qty: z.number().positive(t("alert_qty")),
     front_image: z.instanceof(File, {message: t("image")}).refine((file)=> ["PNG, JPG, JPEG, GIF, webp", t("image_type")]),
     back_image: z.instanceof(File, {message: t("image")}).refine((file)=> ["PNG, JPG, JPEG, GIF, webp", t("image_type")]),
