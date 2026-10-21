@@ -1,4 +1,5 @@
 "use server"
+import { supabase } from "@/db/db.config";
 import { getTranslations } from "next-intl/server";
 import z, { file, size } from "zod"
 
@@ -13,15 +14,19 @@ export async function AddProduct(prevState: any, formData: FormData){
     color: z.array(z.string()).min(1, t("color_min")),
     brand: z.string().min(3, t("brand_min")),
     qty: z.number().positive(t("qty")),
-    type: z.string(),
+    product_type: z.string(),
     alert_qty: z.number().positive(t("alert_qty")),
     front_image: z.instanceof(File, {message: t("image")}).refine((file)=> ["PNG, JPG, JPEG, GIF, webp", t("image_type")]),
     back_image: z.instanceof(File, {message: t("image")}).refine((file)=> ["PNG, JPG, JPEG, GIF, webp", t("image_type")]),
     description: z.string().min(10, t("description")),
+    exp_date: z.string(),
+    man_date: z.string(),
+})
+.refine(
+    (value)=>  value.man_date < value.exp_date,
+    "Man date should be smaller than expire date",
+); 
 
-    
-
-});
     const validationChecker = ValidateSchema.safeParse({
         name: formData.get("name"),
         price: Number(formData.get("price")),
@@ -33,8 +38,8 @@ export async function AddProduct(prevState: any, formData: FormData){
         man_date: formData.get("man_date"),
         exp_date: formData.get("exp_date"),
         description: formData.get("description"),
-        fron_image: formData.get("front_image") as File,
-        back_image: formData.get("back_image") as File,
+        // fron_image: formData.get("front_image") as File,
+        // back_image: formData.get("back_image") as File,
         product_type: formData.get("product_type"),
 
 
@@ -43,10 +48,22 @@ export async function AddProduct(prevState: any, formData: FormData){
         return {
             status: false, 
             message: "Validation error",
-            validationMessages: "",
             error: validationChecker.error.flatten().fieldErrors,
         }
     }
+    else{
+       const {data, error} = await supabase.from("products").insert([
+        validationChecker
+       ]).select();
+       if(error){
+        console.log(error)
+       }
+       else{
+        console.log(data)
+       }
+
+    }
+
     return {
         status: true,
         message: "",

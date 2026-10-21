@@ -28,8 +28,6 @@ function AddProductForm() {
     const [data, action, isPending ]= useActionState( AddProduct,{
         status: false,
         message: "",
-       
-
     }); 
   return (
     <form action={action} className='w-full grid grid-cols-2 gap-4'>
@@ -95,6 +93,8 @@ function AddProductForm() {
                 )}
                </div>
 
+
+
                <div className='grid gap-2'>
                 <Label htmlFor='front_image'>{t("labels.front_image")}</Label>
                 <Input type='file' id='front_image' name='front_image'/>  
@@ -127,9 +127,9 @@ function AddProductForm() {
                             <SelectItem value="cosmetic_item">{t("types.cosmetic")}</SelectItem>
                         </SelectContent>
                     </Select>
-                    {data.error?.type &&(
+                    {data.error?.product_type &&(
                     <p  className='error-message'>
-                        {data.error.type[0]}
+                        {data.error.product_type[0]}
                     </p>
                 )}
               </div>
@@ -137,19 +137,29 @@ function AddProductForm() {
               {/* man date */}
               <div className={`grid gap-2 ${productType== "cosmetic_item"? "block": "hidden"}`}>
                 <Label>{t("labels.man_date")}</Label>
-                
-                
                     <ShamsiDatePicker date={manDate} setDate={setManDate}/>
-                    <Input name='man_date' type='text' defaultValue={manDate? manDate.format("YYYY/MM/DD") : ""} className='hidden'/>
+                    <Input name='man_date' type='text' onChange={()=>setManDate(manDate)} value={manDate? manDate.format("YYYY/MM/DD") : ""} className='hidden'/>
+                      {data.error?.man_date &&(
+                    <p  className='error-message'>
+                        {data.error.man_date[0]}
+                    </p>
+                )}
               </div>
+
+
               {/* exp date */}
               <div className={`grid gap-2 ${productType== "cosmetic_item"? "block": "hidden"}`}>
                 <Label>{t("labels.exp_date")}</Label>
-                
-            
                     <ShamsiEndDate date={expDate} setDate={setExpDate}/>
-                  <Input name='man_date' type='text' defaultValue={expDate? expDate.format("YYYY/MM/DD") : ""} className='hidden'/>
+                  <Input name='man_date' type='text' onChange={()=>setManDate(manDate)} value={expDate? expDate.format("YYYY/MM/DD") : ""} className='hidden'/>
+                    {data.error?.exp_date &&(
+                    <p  className='error-message'>
+                        {data.error.exp_date[0]}
+                    </p>
+                )}
               </div>
+
+
 
                <div className='flex gap-4 flex-wrap items-center'>
                 <h1 className='text-xl font-bold'>{t("labels.color.title")}</h1>
