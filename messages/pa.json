@@ -107,6 +107,20 @@
 
 
 },
+"signup":{
+        "labels": {
+            "title": "Sign Up User ",
+            "description": "Sign Up User With Email And Password",
+            "usermame": "Username",
+            "email": "Email",
+            "password": "Password",
+            "confirm_password": "Confirm Password",
+            "signup_btn": "Sign Up",
+            "btn_disabled": "Please Wait...",
+             "google":"Sign In With Google",
+            "github":" Sign In With Github"
+        }
+    },
   "dashboard": {
     "header": {
         "title": "انلاین پېرودنه"

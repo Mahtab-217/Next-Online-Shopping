@@ -6,6 +6,7 @@ import LanguageSwitcher from './LanguageSwitcher'
 import { useTranslations } from 'next-intl'
 import { LogIn } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 
 function Navbar() {
@@ -20,7 +21,13 @@ function Navbar() {
       <div className='flex items-center gap-8'>
         <ThemeSwitcher btn_light={t("btn_light")} themes={t("theme")} btn_dark={t("btn_dark")} btn_system={t("btn_system")} />
         <LanguageSwitcher/>
-        <Button><LogIn size={18}/> {t("btn_login")}</Button>
+
+        <Button variant="outline">
+          <Link href="/signup" className='flex items-center'>
+           <LogIn size={18}/> {t("btn_login")}
+          
+          </Link>
+           </Button>
       </div>
     </div>
   )
