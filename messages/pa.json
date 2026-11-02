@@ -111,7 +111,7 @@
         "labels": {
             "title": "Sign Up User ",
             "description": "Sign Up User With Email And Password",
-            "usermame": "Username",
+            "username": "Username",
             "email": "Email",
             "password": "Password",
             "confirm_password": "Confirm Password",

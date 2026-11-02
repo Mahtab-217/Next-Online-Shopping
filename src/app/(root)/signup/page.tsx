@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl'
 function page() {
     const t = useTranslations("signup")
   return (
-    <div className='w-full flex justify-center h-screen  items-center'>
+    <div className='w-full flex mt-12 justify-center h-screen  items-center'>
       <Card className='lg:w-3/12 md:w-4/12 w-full'>
         <CardHeader>
             <CardTitle>{t("labels.title")}</CardTitle>
