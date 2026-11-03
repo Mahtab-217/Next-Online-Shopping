@@ -1,6 +1,7 @@
 "use server"
 import { createServerClient } from "@supabase/ssr";
 import { createClient } from "@supabase/supabase-js";
+import { redirect } from "next/dist/server/api-utils";
 import {z} from "zod";
 const RegisterSchema = z.object({
     username: z.string().min(4, "Username must be at least 4 characters"),
@@ -22,11 +23,26 @@ export async function useRegister(_prevState: any, formData:FormData) {
         };
     }
     else{
-        const supabase = createClient();
-        const data=(await supabase).auth.signUp({email: info.data.email, password: info.data.password}
+        const supabase = await createClient();
+        const {data, error}= await supabase.auth.signUp({
+            email: info.data.email,
+             password: info.data.password,
+             options :{
+                data:{
+                    username: info.data.username,
+                },
+             },
 
-            
-        ) 
+        });
+        if(error){
+            return{
+                state: false,
+                message: error.message,
+            };
+        }
+        if (!error){
+            redirect("/signup/confirm_email");
+        }
     } 
     return {
         state: true,

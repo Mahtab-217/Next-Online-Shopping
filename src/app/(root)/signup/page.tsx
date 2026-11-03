@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import SignupForm from '@/components/ui/SignupForm'
 import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 
 
 function page() {
@@ -14,6 +15,7 @@ function page() {
         </CardHeader>
         <CardContent>
         <SignupForm/>
+        <p>Already have an account? <Link href="/signIn" className='underline text-blue-500'>Sign In</Link></p>
         <div className='w-full flex justify-between items-center p-4 rounded-full'>
             <span>{t("labels.google")}</span>
         </div>
