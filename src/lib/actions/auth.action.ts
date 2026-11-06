@@ -1,7 +1,8 @@
 "use server"
-import { createServerClient } from "@supabase/ssr";
+
 import { createClient } from "@supabase/supabase-js";
-import { redirect } from "next/dist/server/api-utils";
+import { error } from "console";
+import { redirect } from "next/navigation";
 import {z} from "zod";
 const RegisterSchema = z.object({
     username: z.string().min(4, "Username must be at least 4 characters"),
@@ -48,4 +49,44 @@ export async function useRegister(_prevState: any, formData:FormData) {
         state: true,
         message: "",
     }
+}
+
+    const userSignInSchema = z.object({
+        email: z.string().min(6, "The email must be at least 6 characters"),
+        password: z.string().min(8, "The email must be at least 8 characters"),
+        
+    });
+     
+
+export async function SignInUser(_prevState: any, formData:FormData){
+    
+        const info = userSignInSchema.safeParse({
+            email: formData.get("email"),
+            password: formData.get("password"),
+        });
+        if(!info.success){
+            return{
+                state: false,
+                message: "",
+                errors: info.error.flatten().fieldErrors,
+
+            };
+        }
+
+        const supabase= await createClient();
+        const {data, error} = await supabase.auth.signInWithPassword({email: info.data.email, password: info.data.password})
+
+        if(error){
+            return{
+                state: false, 
+                message: error.message,
+            }
+        }else{
+            redirect("/")
+        }
+
+
+
+        
+    
 }

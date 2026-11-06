@@ -1,19 +1,49 @@
+export async function createClient(){
+    const cookiesStore = await cookies();
+
+    return createServerClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+        {
+            cookies:{
+                getAll(){
+                    return cookiesStore.getAll()
+                },
+                setAll(cookiesToSet){
+                    try{
+                        cookiesToSet.forEach(({name, value, options})=>
+                        cookiesStore.set(name, value, options),
+                        )
+                    }catch{
+                        // Something went wrong
+                    }
+                },
+            },
+        },
+    )
+}
+
+
+
+
 "use client"
 import React, { useActionState, useState } from 'react'
 
 import { useLocale, useTranslations } from 'next-intl'
 
 import { Eye, EyeOff } from 'lucide-react'
-import { useRegister } from '@/lib/actions/auth.action'
+import { SignInUser} from '@/lib/actions/auth.action'
 import { Label } from './ui/label'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
+import { cookies } from 'next/headers'
+import { createServerClient } from '@supabase/ssr';
 
 function SignInForm() {
     const [showPassword, setShowPassword]= useState(false)
      const locale= useLocale()
     const t= useTranslations("signup.labels")
-    const [data, action, isPending] = useActionState(useRegister,{
+    const [data, action, isPending] = useActionState(SignInUser,{
         state: false,
         message: "",
     })
@@ -41,7 +71,10 @@ function SignInForm() {
             }
                 </div>
                 </div>
-                <Button type='submit'>{t("signup_btn")}</Button>
+                <Button type='submit' disabled={isPending}>{t("signup_btn")}</Button>
+                {data.message.length > 0 && (
+                    <p className='text-red-500 text-sm'>{data.message}</p>
+                )}
             </form>
   )
 }
