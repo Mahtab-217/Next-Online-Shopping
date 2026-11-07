@@ -6,7 +6,7 @@ import { cookies } from 'next/headers'
 import Link from 'next/link'
 import React from 'react'
 
- async function DashboardSidebar() {
+ async function DashboardSidebar({user} : {user: any}) {
    const t= await getTranslations("dashboard.sidebar");
     const cookiesInfo = await cookies(); 
      const locale= cookiesInfo.get("locale")?.value || "fa";
@@ -80,8 +80,8 @@ import React from 'react'
         <SidebarFooter>
             <div className='w-full items-center flex justify-between'>
                 <div className='grid gap-1 text-xs'>
-                    <span>Ali Ahmadi</span>
-                    <span className='hover:underline hover:text-purple-600'>aliahmadi@gmail.com</span>
+                    <span>{user.data.user.user_metadata.username}</span>
+                    <span className='hover:underline hover:text-purple-600'>{user.data.user.email}</span>
                 </div>
                 <LogOut size={18}/>
             </div>

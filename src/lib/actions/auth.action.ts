@@ -82,7 +82,7 @@ export async function SignInUser(_prevState: any, formData:FormData){
                 message: error.message,
             }
         }else{
-            redirect("/")
+            redirect("/dashboard")
         }
 
 
